@@ -2,3 +2,5 @@
 .ipynb_checkpoints/
 X_train
 y_train
+chime_output.wav
+train.wav
