@@ -65,7 +65,6 @@ def get_spectogram(file_path="temp.wav"):
 
 def predict():
     pxx = get_spectogram()
-    print(pxx.shape)
     pxx = np.swapaxes(pxx, 0, 1)
     pxx = np.expand_dims(pxx, 0)
 
@@ -75,14 +74,11 @@ def predict():
 
     for i in range(Ty):
         consecutive_timesteps += 1
-        print(predicted[0, i, 0], round(predicted[0, i, 0], 2))
-
-        if predicted[0, i, 0] > PREDICTION_THRESHOLD:
-            print('Consecutive ', i)
         if predicted[0, i, 0] > PREDICTION_THRESHOLD and consecutive_timesteps > MAX_CONSECUTIVE:
 
             playsound(CHIME_PATH)
             consecutive_timesteps = 0
+            break
 
 
 def main():
