@@ -5,3 +5,4 @@ y_train
 chime_output.wav
 train.wav
 .vscode
+/env
